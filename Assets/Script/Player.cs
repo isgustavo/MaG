@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(PlayerController))]
+[RequireComponent (typeof(GunController))]
 public class Player : MonoBehaviour {
 
 	protected float moveSpeed = 5;
 	protected PlayerController controller;
 	protected Camera viewCamera;
+	protected GunController gunController;
 
 	protected void Start () {
 		controller = GetComponent<PlayerController> ();
+		gunController = GetComponent<GunController> ();
 		viewCamera = Camera.main;
 	}
 	
@@ -29,6 +32,11 @@ public class Player : MonoBehaviour {
 			Vector3 point = ray.GetPoint (rayDistance);
 			Debug.DrawLine (ray.origin, point, Color.red);
 			controller.LookAt(point);
+		}
+
+		if (Input.GetMouseButton (0)) {
+
+			gunController.Shoot ();
 		}
 
 	}
