@@ -1,4 +1,5 @@
-﻿using ODT.UI.Util;
+﻿using EZCameraShake;
+using ODT.UI.Util;
 using ODT.Util;
 using UnityEngine;
 
@@ -28,6 +29,7 @@ namespace ODT.MaG.Gun
             if (moveInput != Vector3.zero)
             {
                 Fire();
+                CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
             }
         }
 

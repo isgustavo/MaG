@@ -19,7 +19,7 @@ namespace ODT.Util
             }
         }
 
-        public void OnDestroyEvent(Vector3 lastHit)
+        public void OnDestroyEvent()
         {
             if (hasDestroyEffect)
             {
@@ -27,7 +27,6 @@ namespace ODT.Util
                 if (obj != null)
                 {
                     obj.transform.position = transform.position;
-                    obj.transform.rotation = Quaternion.FromToRotation(Vector3.forward, lastHit);
                     obj.SetActive(true);
                 }
             }

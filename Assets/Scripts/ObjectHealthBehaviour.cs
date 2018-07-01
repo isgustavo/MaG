@@ -4,15 +4,12 @@ using UnityEngine.Events;
 
 namespace ODT.Util
 {
-    [Serializable]
-    public class DestroyEvent : UnityEvent<Vector3> { }
-
     public class ObjectHealthBehaviour : MonoBehaviour
     {
         [SerializeField]
         private int initialHealth;
         [SerializeField]
-        private DestroyEvent OnDestroyEvent;
+        private UnityEvent OnDestroyEvent;
 
         protected int healht;
 
@@ -21,12 +18,12 @@ namespace ODT.Util
             healht = initialHealth;
         }
 
-        public void OnDamageEvent(int value, Vector3 hit)
+        public void OnDamageEvent(int value)
         {
             healht -= value;
             if (healht <= 0)
             {
-                OnDestroyEvent.Invoke(hit);
+                OnDestroyEvent.Invoke();
             }
         }
 
