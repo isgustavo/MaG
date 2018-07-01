@@ -6,9 +6,6 @@ namespace ODT.MaG.Player
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerRotationBehaviour : MonoBehaviour
     {
-        [SerializeField]
-        private float playerRotationSpeed;
-
         private Rigidbody rb;
 
         private void OnEnable()
