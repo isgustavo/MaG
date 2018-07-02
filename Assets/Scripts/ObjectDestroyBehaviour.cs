@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ODT.Util.Scriptable;
+using UnityEngine;
 
 namespace ODT.Util
 {
@@ -8,6 +9,10 @@ namespace ODT.Util
         private bool hasDestroyEffect = false;
         [SerializeField]
         private string destroyPoolTag;
+
+        [Header("Events")]
+        [SerializeField]
+        private GameEvent OnObjectDestroyEvent;
 
         private ObjectPoolBehaviour destroyPool;
 
@@ -30,6 +35,12 @@ namespace ODT.Util
                     obj.SetActive(true);
                 }
             }
+
+            if (OnObjectDestroyEvent != null)
+            {
+                OnObjectDestroyEvent.Raise();
+            }
+            
             gameObject.SetActive(false);
         }
     }
