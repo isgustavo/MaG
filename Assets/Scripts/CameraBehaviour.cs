@@ -26,7 +26,7 @@ namespace ODT.Util
             target = value;
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             if (target != null)
             {

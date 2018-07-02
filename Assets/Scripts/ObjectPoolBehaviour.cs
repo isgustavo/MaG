@@ -40,7 +40,7 @@ namespace ODT.Util
                 }
             }
 
-            if (objectPool.Count < maxSize)
+            if (maxSize == -1 || objectPool.Count < maxSize)
             {
                 return CreateObj();
             }
